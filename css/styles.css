@@ -299,6 +299,27 @@ nav{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.carousel-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+}
+
+.carousel-img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+    background-color: #1c1c1c;
+}
 
 
 @media (max-width: 820px){

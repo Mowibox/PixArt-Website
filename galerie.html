@@ -22,6 +22,7 @@
                 <div class="navlinks-container">
                     <a href="informations.html" aria-current="page">L'association</a>
                     <a href="#">Galerie d'art</a>
+                    <a href="pixtober.html">Le Pix'Tober</a>
                     <a href="pixshot.html">Projet Pix'Shot</a>
                 </div>
                 <label for="check"> <img class="menu" src="img/menu.png" alt="menu"></label>
@@ -35,9 +36,44 @@
             <article class="intro">
                 <h2 style="padding-bottom: 50px;">Galerie d'Art</h2>
                 <p style="padding-bottom: 40px;">Pix'Tip : Cliquez sur une œuvre pour la voir dans son intégralité !</p>
-                
-            </article>
+                <h2 style="padding-bottom: 40px;">Œuvres à la une</h2>
         </div>
+
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+
+                        const galleryItems = Array.from(document.querySelectorAll(".image-gallery li a img"));
+                        const carouselTrack = document.querySelector(".carousel-track");
+
+                        const shuffled = galleryItems.sort(() => 0.5 - Math.random());
+
+                        const half = Math.ceil(shuffled.length / 4);
+                        const selected = shuffled.slice(0, half);
+
+                        selected.forEach(img => {
+                            const newImg = document.createElement("img");
+                            newImg.src = img.src;
+                            newImg.alt = img.alt;
+                            newImg.classList.add("carousel-img");
+                            carouselTrack.appendChild(newImg);
+                        });
+
+                        let index = 0;
+                        function slide() {
+                            index++;
+                            if (index >= selected.length) index = 0;
+                            carouselTrack.style.transform = `translateX(-${index * 100}%)`;
+                        }
+
+                        setInterval(slide, 5000); 
+                    });
+                    </script>
+                </div>
+        </div>
+
+        </article>
 
         <div class="container">
   
